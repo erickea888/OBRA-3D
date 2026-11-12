@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Obra 3D – CAG</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": {
+  "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<div id="app">
+  <aside id="side">
+    <header>
+      <div class="brand">Acompanhamento de obra</div>
+      <div class="sub">CAG · Shopping Jardim Sul · SJS-ME-CAG-DE-001-R01</div>
+    </header>
+    <section id="overall"></section>
+    <input id="search" type="search" placeholder="Buscar (ex.: BAG-02, flange, duto)">
+    <div id="list"></div>
+  </aside>
+
+  <main id="view">
+    <div id="toolbar">
+      <button data-act="side" class="mobile-only">☰</button>
+      <button data-act="home" title="Vista 3D inicial">3D</button>
+      <button data-act="top" title="Vista de cima">Topo</button>
+      <button data-act="walk" title="Andar pela planta em primeira pessoa">🚶 Andar</button>
+      <span class="sep"></span>
+      <button data-act="plan" class="on" title="Planta no piso (clique p/ alternar intensidade)">Planta</button>
+      <button data-act="walls" class="on">Paredes</button>
+      <button data-act="ghost" class="on" title="Mostrar o que ainda falta (transparente)">Pendentes</button>
+      <span class="sep"></span>
+      <button data-act="csv" title="Relatório em planilha (data selecionada)">Relatório</button>
+      <button data-act="export" title="Baixar backup dos registros">Exportar</button>
+      <button data-act="import">Importar</button>
+      <button data-act="sample" title="Carrega dados fictícios para testar">Exemplo</button>
+      <button data-act="clear" title="Apagar todos os registros">Limpar</button>
+      <input type="file" id="file" accept=".json,application/json" hidden>
+    </div>
+    <details id="legend"></details>
+    <div id="tip" hidden></div>
+    <div id="walkhelp" hidden>
+      <b>Arraste</b> para olhar · <b>W A S D</b> andar · <b>Shift</b> correr · <b>Q / E</b> abaixar / subir ·
+      <b>duplo clique</b> no piso vai até lá · <b>clique</b> numa peça abre os detalhes
+    </div>
+    <div id="saved"></div>
+    <div id="timeline">
+      <button id="play" title="Reproduzir a evolução da obra">▶</button>
+      <input type="range" id="tl" min="0" max="1" value="1" aria-label="Data">
+      <div id="tlDate"></div>
+      <button id="today">Hoje</button>
+    </div>
+  </main>
+
+  <aside id="detail" hidden></aside>
+</div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
